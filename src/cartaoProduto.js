@@ -7,7 +7,7 @@ export function renderizarCatalogo() {
     m-2 flex flex-col p-2 justify-between shadow-xl shadow-slate-400 rounded-lg group ${produtoCatalogo.feminino ? "feminino" : "masculino"}'
     id="card-produto-${produtoCatalogo.id}">
         <img 
-        src="./perfumes img/${produtoCatalogo.nomeArquivoImagem}"
+        src="./imgs/${produtoCatalogo.nomeArquivoImagem}"
         alt="produto 1 do guilherme magazine."
         class='group-hover:scale-110 duration-300 my-3 rounded-lg'          
         />
