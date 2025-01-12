@@ -3,7 +3,7 @@ import {
   lerLocalStorage,
   salvarLocalStorage,
   apagarDoLocalStorage
-} from "./src/utilidades";
+} from "./utilidades";
 
 function desenharProdutosCheckout() {
   const idsProdutoCarrinhoComQuantidade = lerLocalStorage("carrinho") ?? {};
