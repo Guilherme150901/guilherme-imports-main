@@ -20,14 +20,14 @@ function desenharProdutosCheckout() {
 function finalizarCompra(evento) {
   evento.preventDefault();
   const idsProdutoCarrinhoComQuantidade = lerLocalStorage("carrinho") ?? {};
-  if(Object.keys(idsProdutoCarrinhoComQuantidade).length === 0) {
+  if (Object.keys(idsProdutoCarrinhoComQuantidade).length === 0) {
     return;
   }
   const dataAtual = new Date();
   const pedidoFeito = {
     dataPedido: dataAtual,
-    pedido: idsProdutoCarrinhoComQuantidade
-  }
+    pedido: idsProdutoCarrinhoComQuantidade,
+  };
   const historicoDePedidos = lerLocalStorage("historico") ?? [];
   const historicoDePedidosAtualizado = [pedidoFeito, ...historicoDePedidos];
 
@@ -41,4 +41,3 @@ desenharProdutosCheckout();
 atualizarPrecoCarrinho();
 
 document.addEventListener("submit", (evt) => finalizarCompra(evt));
-
