@@ -11,7 +11,7 @@ function exibirTodos() {
 }
 
 function esconderMasculinos() {
-  exibirTodos();   
+  exibirTodos();
   const produtosMasculinos = Array.from(
     catalogoProdutos.getElementsByClassName("masculino")
   );
@@ -22,7 +22,7 @@ function esconderMasculinos() {
 }
 
 function esconderFemininos() {
-  exibirTodos();  
+  exibirTodos();
   const produtosFemininos = Array.from(
     catalogoProdutos.getElementsByClassName("feminino")
   );
@@ -36,9 +36,9 @@ export function inicializarFiltros() {
   document
     .getElementById("exibir-todos")
     .addEventListener("click", exibirTodos);
-    document
+  document
     .getElementById("exibir-masculinos")
-    .addEventListener("click", esconderFemininos); 
+    .addEventListener("click", esconderFemininos);
   document
     .getElementById("exibir-femininos")
     .addEventListener("click", esconderMasculinos);

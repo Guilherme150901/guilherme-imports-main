@@ -13,7 +13,7 @@ function fecharCarrinho() {
 }
 
 function irParaCheckout() {
-  if(Object.keys(idsProdutoCarrinhoComQuantidade).length === 0) {
+  if (Object.keys(idsProdutoCarrinhoComQuantidade).length === 0) {
     return;
   }
   window.location.href = window.location.origin + "/checkout.html";
@@ -22,7 +22,7 @@ function irParaCheckout() {
 export function inicializarCarrinho() {
   const botaoFecharCarrinho = document.getElementById("fechar-carrinho");
   const botaoAbrirCarrinho = document.getElementById("abrir-carrinho");
-  const botaoIrParaCheckout = document.getElementById("finalizar-compra")
+  const botaoIrParaCheckout = document.getElementById("finalizar-compra");
 
   botaoFecharCarrinho.addEventListener("click", fecharCarrinho);
   botaoAbrirCarrinho.addEventListener("click", abrirCarrinho);
@@ -44,10 +44,10 @@ function incrementarQuantidadeProduto(idProduto) {
 }
 
 function decrementarQuantidadeProduto(idProduto) {
-   if(idsProdutoCarrinhoComQuantidade[idProduto] === 1){
+  if (idsProdutoCarrinhoComQuantidade[idProduto] === 1) {
     removerDoCarrinho(idProduto);
     return;
-   }
+  }
   idsProdutoCarrinhoComQuantidade[idProduto]--;
   salvarLocalStorage("carrinho", idsProdutoCarrinhoComQuantidade);
   salvarLocalStorage("carrinho", idsProdutoCarrinhoComQuantidade);
@@ -66,21 +66,21 @@ function desenharProdutoNoCarrinho(idProduto) {
   const containerProdutosCarrinho =
     document.getElementById("produtos-carrinho");
 
-    const elementoArticle = document.createElement("article");
-    const articleClasses = [
-      "flex",
-      "bg-slate-100", 
-      "rounded-lg", 
-      "p-1", 
-      "relative",
-    ];
-    
-    for (const articleClass of articleClasses) {
-      elementoArticle.classList.add(articleClass);
-    }
-    //<article class= "flex bg-slate-100 rounded-lg p-1 relative"></article>
+  const elementoArticle = document.createElement("article");
+  const articleClasses = [
+    "flex",
+    "bg-slate-100",
+    "rounded-lg",
+    "p-1",
+    "relative",
+  ];
 
-    const cartaoProdutoCarrinho = `<button 
+  for (const articleClass of articleClasses) {
+    elementoArticle.classList.add(articleClass);
+  }
+  //<article class= "flex bg-slate-100 rounded-lg p-1 relative"></article>
+
+  const cartaoProdutoCarrinho = `<button 
       id="remover-item-${produto.id}" 
       class=" absolute top-0 right-2"><i 
       class="fa-solid fa-circle-xmark text-slate-500 hover:text-slate-800"></i>
@@ -114,21 +114,19 @@ function desenharProdutoNoCarrinho(idProduto) {
     .getElementById(`incrementar-produto-${produto.id}`)
     .addEventListener("click", () => incrementarQuantidadeProduto(produto.id));
 
-    document
+  document
     .getElementById(`remover-item-${produto.id}`)
-    .addEventListener("click", () => removerDoCarrinho(produto.id)); 
-
+    .addEventListener("click", () => removerDoCarrinho(produto.id));
 }
 
 export function renderizarProdutosCarrinho() {
   const containerProdutosCarrinho =
-  document.getElementById("produtos-carrinho");
+    document.getElementById("produtos-carrinho");
   containerProdutosCarrinho.innerHTML = "";
 
   for (const idProduto in idsProdutoCarrinhoComQuantidade) {
     desenharProdutoNoCarrinho(idProduto);
   }
-  
 }
 
 export function adicionarAoCarrinho(idProduto) {
@@ -146,9 +144,10 @@ export function adicionarAoCarrinho(idProduto) {
 export function atualizarPrecoCarrinho() {
   const precoCarrinho = document.getElementById("preço-total");
   let precoTotalCarrinho = 0;
-  for( const idProdutoNoCarrinho in idsProdutoCarrinhoComQuantidade ) {
-    precoTotalCarrinho += catalogo.find (p => p.id === idProdutoNoCarrinho).preco *
-     idsProdutoCarrinhoComQuantidade[idProdutoNoCarrinho];
+  for (const idProdutoNoCarrinho in idsProdutoCarrinhoComQuantidade) {
+    precoTotalCarrinho +=
+      catalogo.find((p) => p.id === idProdutoNoCarrinho).preco *
+      idsProdutoCarrinhoComQuantidade[idProdutoNoCarrinho];
   }
   precoCarrinho.innerText = `Total: R$${precoTotalCarrinho}`;
 }

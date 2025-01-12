@@ -150,5 +150,4 @@ export function desenharProdutoNoCarrinhoSimples(
 
   elementoArticle.innerHTML = cartaoProdutoCarrinho;
   containerProdutosCarrinho.appendChild(elementoArticle);
-
 }
