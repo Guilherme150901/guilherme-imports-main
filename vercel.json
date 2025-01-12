@@ -1,5 +1,6 @@
 {
     "redirects": [
-      { "source": "/checkout", "destination": "/checkout.html", "statusCode": 200 }
+      { "source": "/checkout", "destination": "/checkout.html", "statusCode": 200 },
+      { "source": "/pedidos", "destination": "/pedidos.html", "statusCode": 200 }
     ]
   }
